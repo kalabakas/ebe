@@ -1,6 +1,6 @@
 [submodule "lib/Libcurl"]
-		path = lib/Libcurl
-		url = git@github.com:dan-nl/Libcurl.git
+	path = lib/Libcurl
+	url = git@github.com:dan-nl/Libcurl.git
 [submodule "lib/Europeana"]
-		path = lib/Europeana
-		url = git@github.com:dan-nl/Europeana.git
+	path = lib/Europeana
+	url = git@github.com:dan-nl/Europeana.git
