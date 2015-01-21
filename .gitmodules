@@ -4,3 +4,9 @@
 [submodule "lib/Europeana"]
 	path = lib/Europeana
 	url = git@github.com:dan-nl/Europeana.git
+[submodule "lib/W3C"]
+	path = lib/W3C
+	url = git@github.com:dan-nl/W3C.git
+[submodule "lib/algoliasearch-client-php"]
+	path = lib/algoliasearch-client-php
+	url = git@github.com:algolia/algoliasearch-client-php.git
