@@ -3,7 +3,6 @@ namespace EuropeanaBatchExport;
 use AlgoliaSearch;
 
 require 'algoliasearch-client-php/algoliasearch.php';
-include 'config.php';
 
 class AlgoliaRecordStorage implements RecordStorageInterface {
 
@@ -11,8 +10,9 @@ class AlgoliaRecordStorage implements RecordStorageInterface {
   private $index;
 
 	public function init(array $options = array()){
-		$client = new AlgoliaSearch\Client($algolia_application_id, $algolia_admin_api_key); //algolia_application_id,algolia_admin_api_key
-    $this->index = $client->initIndex($algolia_index);//$algolia_index
+    global $config;
+		$client = new AlgoliaSearch\Client($config['algolia_application_id'], $config['algolia_admin_api_key']); //algolia_application_id,algolia_admin_api_key
+    $this->index = $client->initIndex($config['algolia_index']);//$algolia_index
 	}
 
 	public function addMultiple(array $records, $index){

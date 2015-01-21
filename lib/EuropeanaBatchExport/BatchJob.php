@@ -4,8 +4,6 @@ namespace EuropeanaBatchExport;
 use \Europeana\Api\Helpers\Response as Response_Helper;
 use \Europeana\Api\Helpers\Request as Request_Helper;
 
-include 'config.php';
-
 class BatchJob {
 
   const ALGOLIA_STORAGE = 0;
@@ -21,6 +19,8 @@ class BatchJob {
   public $total_records_count = 0;
 
   public function __construct( $query_string, $init=1 ){
+    global $config;
+    $this->wskey = $config['europeana_key'];
     
     // clean-up query
     $query_string = filter_var( $query_string, FILTER_SANITIZE_STRING );
@@ -33,7 +33,7 @@ class BatchJob {
     $this->query_string = Request_Helper::removeQueryParam( $query_string, 'start' );
     $this->init = (int) Request_Helper::getQueryParam( $query_string, 'start', $init );
     $this->record_storage = new XmlRecordStorage();//Default
-    $this->wskey = $europeana_key;
+    
   }
 
   public function setStorage($storage){

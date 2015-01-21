@@ -2,17 +2,17 @@
 namespace EuropeanaBatchExport;
 use ZipArchive;
 
-include 'config.php';
-
 class XmlRecordStorage implements RecordStorageInterface {
 
 	private $request_uniqid;
   private $folder_path;
 
 	public function init(array $options = array()){
-		//preparation
+		global $config;
+
+    //preparation
     $this->request_uniqid = uniqid();
-    $this->folder_path = $xml_folder_path.'/' . date( 'Y-m-d_H.i.s' ) . '_' . $this->request_uniqid;
+    $this->folder_path = $config['xml_folder_path'].'/' . date( 'Y-m-d_H.i.s' ) . '_' . $this->request_uniqid;
     if (!file_exists($this->folder_path)) {
         mkdir($this->folder_path, 0777, true);
     } else {
