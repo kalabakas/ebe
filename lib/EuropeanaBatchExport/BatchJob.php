@@ -34,7 +34,6 @@ class BatchJob {
     $this->init = (int) Request_Helper::getQueryParam( $query_string, 'start', $init );
     $this->record_storage = new XmlRecordStorage();//Default
     $this->wskey = $europeana_key;
-    var_dump($europeana_key);die;
   }
 
   public function setStorage($storage){
