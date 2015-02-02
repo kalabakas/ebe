@@ -23,7 +23,7 @@ class BatchJob {
     $this->wskey = $config['europeana_key'];
     
     // clean-up query
-    $query_string = filter_var( $query_string, FILTER_SANITIZE_STRING );
+    $query_string = filter_var( $query_string, FILTER_SANITIZE_STRING ); 
     $query_string = Request_Helper::normalizeQueryString( $query_string );
 
     // remove rows param from query - we're going to ignore user provided value

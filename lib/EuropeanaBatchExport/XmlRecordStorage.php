@@ -4,11 +4,11 @@ use ZipArchive;
 
 class XmlRecordStorage implements RecordStorageInterface {
 
-	private $request_uniqid;
+  private $request_uniqid;
   private $folder_path;
 
-	public function init(array $options = array()){
-		global $config;
+  public function init(array $options = array()){
+    global $config;
 
     //preparation
     $this->request_uniqid = uniqid();
@@ -18,9 +18,9 @@ class XmlRecordStorage implements RecordStorageInterface {
     } else {
       throw new Exception("Folder creation error", 1);
     }
-	}
+  }
 
-	public function addMultiple(array $records, $index){
+  public function addMultiple(array $records, $index){
     $zip_name =  $this->request_uniqid . '_'. $index . '.zip';
     $zip = new ZipArchive;
     $res = $zip->open($this->folder_path.'/'.$zip_name, ZipArchive::CREATE);
@@ -45,12 +45,12 @@ class XmlRecordStorage implements RecordStorageInterface {
 
     $zip->close();
     return $counter;
-	}
+  }
 
-	public function flush(){
+  public function flush(){
     //
   }
-	
+  
 }
 
 class XMLSerializer {

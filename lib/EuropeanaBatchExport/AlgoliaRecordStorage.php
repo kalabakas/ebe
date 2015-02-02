@@ -6,16 +6,16 @@ require 'algoliasearch-client-php/algoliasearch.php';
 
 class AlgoliaRecordStorage implements RecordStorageInterface {
 
-	private $batch = array();
+  private $batch = array();
   private $index;
 
-	public function init(array $options = array()){
+  public function init(array $options = array()){
     global $config;
-		$client = new AlgoliaSearch\Client($config['algolia_application_id'], $config['algolia_admin_api_key']); //algolia_application_id,algolia_admin_api_key
+    $client = new AlgoliaSearch\Client($config['algolia_application_id'], $config['algolia_admin_api_key']); //algolia_application_id,algolia_admin_api_key
     $this->index = $client->initIndex($config['algolia_index']);//$algolia_index
-	}
+  }
 
-	public function addMultiple(array $records, $index){
+  public function addMultiple(array $records, $index){
     $counter=0;
 
     foreach ($records as $record) {
@@ -34,11 +34,11 @@ class AlgoliaRecordStorage implements RecordStorageInterface {
     }
 
     return $counter;
-	}
+  }
 
-	public function flush(){
+  public function flush(){
     $this->index->saveObjects($this->batch);
     $this->batch = array();
   }
-	
+  
 }
