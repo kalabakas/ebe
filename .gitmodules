@@ -10,3 +10,6 @@
 [submodule "lib/PHP-CLI-Progress-Bar"]
 	path = lib/PHP-CLI-Progress-Bar
 	url = git@github.com:guiguiboy/PHP-CLI-Progress-Bar.git
+[submodule "lib/Europeana"]
+	path = lib/Europeana
+	url = git@github.com:kalabakas/Europeana.git
